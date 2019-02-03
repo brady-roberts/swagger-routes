@@ -35,7 +35,8 @@ function registerDocsRoute(app, options) {
   options.docsPath = '/' + options.docsPath;
   console.log('options.basepath: ' + options.api.basePath);
   console.log('option.docsPath: ' + options.docsPath);
-  const docsPath = path.normalize(`/${options.api.basePath}/${options.docsPath}`)
+  //const docsPath = path.normalize(`/${options.api.basePath}/${options.docsPath}`)
+  const docsPath = options.api.basePath + options.docsPath;
   console.log('after: ' + docsPath);
   app.get(docsPath, options.docsMiddleware, function handler(req, res) { res.json(options.api) })
 }
