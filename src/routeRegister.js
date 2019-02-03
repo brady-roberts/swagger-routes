@@ -32,6 +32,9 @@ function getHttpMethod(app, operation) {
 }
 
 function registerDocsRoute(app, options) {
+  console.log('options.basepath: ' + options.api.basePath);
+  console.log('option.docsPath: ' + options.docsPath);
   const docsPath = path.normalize(`/${options.api.basePath}/${options.docsPath}`)
+  console.log('after: ' + docsPath);
   app.get(docsPath, options.docsMiddleware, function handler(req, res) { res.json(options.api) })
 }
